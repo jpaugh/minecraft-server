@@ -1,0 +1,15 @@
+version: "3"
+services:
+    mc-server-composed:
+        image: itzg/minecraft-server
+        ports:
+            - 25565:25565
+        environment:
+            EULA: "TRUE"
+            TZ: "America/Chicago"
+            VERSION: "1.16.5"
+        volumes:
+            - ./data:/data
+
+        stdin_open: true
+        tty: true

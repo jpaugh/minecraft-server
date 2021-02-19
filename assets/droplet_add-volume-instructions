@@ -1,0 +1,10 @@
+Run the following commands on the Droplet to make your volume accessible:
+
+# Create a mount point for your volume:
+$ mkdir -p /mnt/small_potatoes
+
+# Mount your volume at the newly-created mount point:
+$ mount -o discard,defaults,noatime /dev/disk/by-id/scsi-0DO_Volume_small-potatoes /mnt/small_potatoes
+
+# Change fstab so the volume will be mounted after a reboot
+$ echo '/dev/disk/by-id/scsi-0DO_Volume_small-potatoes /mnt/small_potatoes ext4 defaults,nofail,discard 0 0' | sudo tee -a /etc/fstab
